@@ -23,37 +23,43 @@ app.use("/about", function(request, response, next) {
 app.get("/about", function(request, response) {
   response.send("<h1>О сайте</h1>");
 });
-app.get("/main", function(request, response){
-  response.sendFile(__dirname + "/index.html");
-  logger.log("File send ")
+app.get("/main", function(request, response) {
+  response.sendFile(__dirname + "/public/index.html");
+  logger.log("File send ");
 });
-app.get("/wrongpage", function(request, response){
+app.get("/wrongpage", function(request, response) {
   response.sendStatus(404).send("Resource not found");
   logger.log("404 accessed");
 });
 
 // Query string: adress should be: /requeststring?id=1&name=John
-app.get("/requeststring", function(request, response){
+app.get("/requeststring", function(request, response) {
   let id = request.query.id;
   let name = request.query.name;
-  response.send("<h1>YOUR QUERY STRING</h1><p>id = " + id + "</p><p>name = " + name + "</p>");
-})
+  response.send(
+    "<h1>YOUR QUERY STRING</h1><p>id = " + id + "</p><p>name = " + name + "</p>"
+  );
+});
 
 app.get("/contact(.html)?", function(request, response) {
-  response.send("<h1>Контакты</h1>");
+  response.send("<h1>Contacts</h1>");
 });
-app.get(/.*(\.)html$/, function(request, response) { // regex - route to all ending in htmls
+app.get(/.*(\.)html$/, function(request, response) {
+  // regex - route to all ending in htmls
   response.send();
   console.log(request.ip);
 });
-app.get("/", function(request, response) { // More general routes go after rarer
-  response.send("<h1>Главная страница</h1>");
+app.get("/", function(request, response) {
+  // More general routes go after rarer
+  response.send("<h1>Main page</h1>");
   logger.log("Accessed ");
-}); 
+});
 
 // Redirect to https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture
-app.use("/redirect", function(request, response){
-  response.redirect("https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture");
+app.use("/redirect", function(request, response) {
+  response.redirect(
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture"
+  );
   logger.log("Redirected ");
 });
 

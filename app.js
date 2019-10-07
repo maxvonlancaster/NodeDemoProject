@@ -10,7 +10,7 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/dist"));
 
 app.use(function(request, response, next) {
   console.log("Middleware 1");
@@ -24,7 +24,7 @@ app.get("/about", function(request, response) {
   response.send("<h1>О сайте</h1>");
 });
 app.get("/main", function(request, response) {
-  response.sendFile(__dirname + "/public/index.html");
+  response.sendFile(__dirname + "/dist/index.html");
   logger.log("File send ");
 });
 app.get("/wrongpage", function(request, response) {

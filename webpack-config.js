@@ -1,6 +1,6 @@
 module.exports = {
   devtool: "source-map",
-  entry: "./app.tsx",
+  entry: "./app.jsx",
   mode: "development",
   output: {
     filename: "./app-bundle.js"
@@ -11,11 +11,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.(tsx|js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "ts-loader"
-        }
+        use: [{
+          loader: "babel-loader"
+      }]
       }
     ]
   }

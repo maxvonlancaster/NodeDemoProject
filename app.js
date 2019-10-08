@@ -5,6 +5,8 @@ const os = require("os");
 const fs = require("fs");
 const EventEmitter = require("events");
 const http = require("http");
+const Repository = require("./server/repository");
+const repository = new Repository();
 
 const express = require("express");
 
@@ -26,6 +28,8 @@ app.get("/about", function(request, response) {
 app.get("/main", function(request, response) {
   response.sendFile(__dirname + "/dist/index.html");
   logger.log("File send ");
+  let testsCollection = repository.readCollections();
+  logger.log(testsCollection);
 });
 app.get("/wrongpage", function(request, response) {
   response.sendStatus(404).send("Resource not found");

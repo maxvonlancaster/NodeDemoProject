@@ -1,71 +1,80 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true, useUnifiedTopology: true });
+const mongoClient = new MongoClient("mongodb://localhost:27017/", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 class Repository {
-    create(collectionName, doc) {
-        mongoClient.connect(function (err, client) {
-            if (err) {
-                return console.log(err);
-            }
-            const db = client.db();
+  create(collectionName, doc) {
+    mongoClient.connect(function(err, client) {
+      if (err) {
+        return console.log(err);
+      }
+      const db = client.db("tests");
+      const collection = db.collection(collectionName);
 
-            client.close();
-        });
-    }
+      client.close();
+    });
+  }
 
-    readCollection(name){
-        mongoClient.connect(function (err, client) {
-            if (err) {
-                return console.log(err);
-            }
+  readCollection(name) {
+    mongoClient.connect(function(err, client) {
+      if (err) {
+        return console.log(err);
+      }
+      const db = client.db("tests");
+      const collection = db.collection(name);
 
-            client.close();
-        });
-    }
-    
-    readCollections(){
-        let res = null;
+      client.close();
+    });
+  }
 
-        mongoClient.connect(function (err, client) {
-            if (err) {
-                return console.log(err);
-            }
-            const db = client.db("tests");
-            const collection = db.collection("tests");
-            res = collection.find({}).toArray(function (err, result) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log(result);
-                    res = result;
-                }
-            });
-        });
+  readCollections() {
+    let res = null;
 
-        console.log("RESULTS: " + res);
+    mongoClient.connect(function(err, client) {
+      if (err) {
+        return console.log(err);
+      }
+      const db = client.db("tests");
+      const collection = db.collection("tests");
+      res = collection.find({}).toArray(function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          res = result;
+        }
+      });
+    });
 
-    }
+    console.log("RESULTS: " + res);
+  }
 
-    update(collectionName, doc){
-        mongoClient.connect(function (err, client) {
-            if (err) {
-                return console.log(err);
-            }
+  update(collectionName, doc) {
+    mongoClient.connect(function(err, client) {
+      if (err) {
+        return console.log(err);
+      }
+      const db = client.db("tests");
+      const collection = db.collection(collectionName);
 
-            client.close();
-        });
-    }
+      client.close();
+    });
+  }
 
-    delete(collectionName, doc){
-        mongoClient.connect(function (err, client) {
-            if (err) {
-                return console.log(err);
-            }
+  delete(collectionName, doc) {
+    mongoClient.connect(function(err, client) {
+      if (err) {
+        return console.log(err);
+      }
+      const db = client.db("tests");
+      const collection = db.collection(collectionName);
 
-            client.close();
-        });
-    }
+      client.close();
+    });
+  }
 }
 
 module.exports = Repository;

@@ -7,6 +7,8 @@ const EventEmitter = require("events");
 const http = require("http");
 const Repository = require("./server/repository");
 const repository = new Repository();
+const TestRepository = require("./server/mongooseRepository");
+const testRepository = new TestRepository();
 
 const express = require("express");
 
@@ -28,8 +30,10 @@ app.get("/about", function(request, response) {
 app.get("/main", function(request, response) {
   response.sendFile(__dirname + "/dist/index.html");
   logger.log("File send ");
-  let testsCollection = repository.readCollections();
-  logger.log(testsCollection);
+  let testsCollection = testRepository.ReadAll().then(function(value){
+    console.log("VALUE: " + value)
+  });
+  console.log("RESULT: " + testsCollection);
 });
 app.get("/wrongpage", function(request, response) {
   response.sendStatus(404).send("Resource not found");

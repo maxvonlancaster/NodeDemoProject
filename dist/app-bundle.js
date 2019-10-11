@@ -108,9 +108,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -127,15 +127,37 @@ var Hello =
 function (_React$Component) {
   _inherits(Hello, _React$Component);
 
-  function Hello() {
+  function Hello(props) {
+    var _this;
+
     _classCallCheck(this, Hello);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Hello).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Hello).call(this, props));
+    _this.state = {
+      tests: [],
+      a: false
+    };
+    _this.testCards = _this.testCards.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Hello, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var response = fetch("/tests").then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this2.setState({
+          tests: res
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      this.state.a = true;
       return React.createElement("div", null, React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Jumbotron"], null, React.createElement("h1", {
         className: "display-3"
       }, "This is the test project"), React.createElement("p", {
@@ -146,13 +168,20 @@ function (_React$Component) {
         className: "lead"
       })), React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Container"], {
         fluid: true
-      }, React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Row"], null, React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Col"], {
-        className: "p-3",
-        sm: "4"
-      }, React.createElement(_components_Test_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        text: "sample text",
-        title: "sample title"
-      })))));
+      }, React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Row"], null, this.testCards())));
+    }
+  }, {
+    key: "testCards",
+    value: function testCards() {
+      return this.state.tests.map(function (test) {
+        return React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Col"], {
+          className: "p-3",
+          sm: "4"
+        }, React.createElement(_components_Test_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          text: test.TestText,
+          title: test.TestName
+        }));
+      });
     }
   }]);
 

@@ -17,7 +17,7 @@ const app = express();
 app.use(express.static(__dirname + "/dist"));
 
 app.use(function(request, response, next) {
-  console.log("Middleware 1");
+  // console.log("Middleware 1");
   next();
 });
 app.use("/about", function(request, response, next) {
@@ -29,12 +29,24 @@ app.get("/about", function(request, response) {
 });
 app.get("/main", function(request, response) {
   response.sendFile(__dirname + "/dist/index.html");
-  logger.log("File send ");
+  // logger.log("File send ");
   let testsCollection = testRepository.ReadAll().then(function(value){
     console.log("VALUE: " + value)
   });
   console.log("RESULT: " + testsCollection);
 });
+app.get("/tests", function(request, response)
+{
+  let testsCollection = testRepository.ReadAll().then(function(value){
+    response.send(value);
+  })
+})
+
+app.get("")
+
+
+
+
 app.get("/wrongpage", function(request, response) {
   response.sendStatus(404).send("Resource not found");
   logger.log("404 accessed");

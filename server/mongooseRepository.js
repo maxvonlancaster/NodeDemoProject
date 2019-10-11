@@ -25,11 +25,22 @@ class TestRepository {
         return result;
     }
 
-    async CreateTest(collectionName){
+
+    async CreateTest(collectionName, question, options, correct){
         const Collection = mongoose.model(collectionName, collectionSchema);
+        const test = new collectionSchema({Question : question, Options : options, Correct : correct});
+        test.save();
     }
 
-    async ReadTest(collectionName){
+    async ReadTests(collectionName){
+        const Collection = mongoose.model(collectionName, collectionSchema);
+        let result;
+        result = await Collection.find({});
+        
+        return result;
+    }
+
+    async GetTest(collectionName, testId){
         const Collection = mongoose.model(collectionName, collectionSchema);
 
     }

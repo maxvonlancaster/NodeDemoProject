@@ -66,3 +66,11 @@ export class Hello extends React.Component {
 }
 
 ReactDOM.render(<Hello />, document.getElementById("root"));
+
+
+Jumbotron.propTypes = {
+  // Pass in a Component to override default element
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  fluid: PropTypes.bool,
+  className: PropTypes.string
+};

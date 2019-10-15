@@ -202,6 +202,12 @@ function (_React$Component) {
   return Hello;
 }(React.Component);
 ReactDOM.render(React.createElement(Hello, null), document.getElementById("root"));
+reactstrap__WEBPACK_IMPORTED_MODULE_0__["Jumbotron"].propTypes = {
+  // Pass in a Component to override default element
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  fluid: PropTypes.bool,
+  className: PropTypes.string
+};
 
 /***/ }),
 

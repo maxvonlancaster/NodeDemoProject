@@ -135,6 +135,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Hello).call(this, props));
     _this.state = {
       tests: [],
+      testCollection: [],
       a: false
     };
     _this.testCards = _this.testCards.bind(_assertThisInitialized(_this));
@@ -151,6 +152,19 @@ function (_React$Component) {
       }).then(function (res) {
         _this2.setState({
           tests: res
+        });
+      });
+    }
+  }, {
+    key: "getTestCollection",
+    value: function getTestCollection(collectionName) {
+      var _this3 = this;
+
+      var response = fetch("/test/:" + collectionName).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this3.setState({
+          testCollection: res
         });
       });
     }

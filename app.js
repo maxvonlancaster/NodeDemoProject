@@ -30,22 +30,23 @@ app.get("/about", function(request, response) {
 app.get("/main", function(request, response) {
   response.sendFile(__dirname + "/dist/index.html");
   // logger.log("File send ");
-  let testsCollection = testRepository.ReadAll().then(function(value){
-    console.log("VALUE: " + value)
+  let testsCollection = testRepository.ReadAll().then(function(value) {
+    console.log("VALUE: " + value);
   });
   console.log("RESULT: " + testsCollection);
 });
-app.get("/tests", function(request, response)
-{
-  let testsCollection = testRepository.ReadAll().then(function(value){
+app.get("/tests", function(request, response) {
+  let testsCollection = testRepository.ReadAll().then(function(value) {
     response.send(value);
-  })
-})
+  });
+});
 
-app.get("")
-
-
-
+app.get("/test/:name", function(request, response) {
+  var testName = request.params.name; // not sure is this will work correctly
+  let collection = testRepository.ReadTests().then(function(value) {
+    response.send(value);
+  });
+});
 
 app.get("/wrongpage", function(request, response) {
   response.sendStatus(404).send("Resource not found");

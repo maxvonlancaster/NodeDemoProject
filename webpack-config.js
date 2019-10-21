@@ -1,6 +1,9 @@
 module.exports = {
   devtool: "source-map",
-  entry: "./app.jsx",
+  entry: {
+    index:  "./app.jsx",
+    test: "./test.jsx",
+  },
   mode: "development",
   output: {
     filename: "./app-bundle.js"

@@ -47,6 +47,9 @@ class TestRepository {
   async GetTest(collectionName, testId) {
     const Collection = mongoose.model(collectionName, collectionSchema);
     let result;
+    result = await Collection.find({});
+
+    return result;
   }
 
   async UpdateTest(collectionName) {

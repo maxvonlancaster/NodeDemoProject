@@ -33,7 +33,6 @@ app.get("/main", function(request, response) {
   let testsCollection = testRepository.ReadAll().then(function(value) {
     console.log("VALUE: " + value);
   });
-  console.log("RESULT: " + testsCollection);
 });
 app.get("/tests", function(request, response) {
   let testsCollection = testRepository.ReadAll().then(function(value) {

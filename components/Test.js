@@ -7,6 +7,7 @@ import {
     Button,
     Fade
 } from 'reactstrap';
+import {START} from "../public/constants.js";
 
 export default class Test extends React.Component{
     constructor(props){
@@ -32,7 +33,7 @@ export default class Test extends React.Component{
                 <Card>
                     <CardBody>
                         <CardTitle>{this.state.title}</CardTitle>
-                        <Button color="secondary" onClick={this.toggle}>Start</Button>
+                        <Button color="secondary" onClick={this.toggle}>{START}</Button>
                         <Fade in={this.state.fadeIn} className='my-2'>
                             <CardText>{this.state.text}</CardText>
                         </Fade>

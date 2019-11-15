@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hello", function() { return Hello; });
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
 /* harmony import */ var _components_Test_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Test.js */ "./components/Test.js");
+/* harmony import */ var _public_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./public/constants.js */ "./public/constants.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -119,6 +120,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
 
 
 
@@ -174,11 +176,11 @@ function (_React$Component) {
       this.state.a = true;
       return React.createElement("div", null, React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Jumbotron"], null, React.createElement("h1", {
         className: "display-3"
-      }, "This is the test project"), React.createElement("p", {
+      }, _public_constants_js__WEBPACK_IMPORTED_MODULE_2__["LEAD_MAIN"]), React.createElement("p", {
         className: "lead"
-      }, "This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information."), React.createElement("hr", {
+      }, _public_constants_js__WEBPACK_IMPORTED_MODULE_2__["UNIT_MAIN"]), React.createElement("hr", {
         className: "my-2"
-      }), React.createElement("p", null, "It uses utility classes for typography and spacing to space content out within the larger container."), React.createElement("p", {
+      }), React.createElement("p", null, _public_constants_js__WEBPACK_IMPORTED_MODULE_2__["UTILITY_MAIN"]), React.createElement("p", {
         className: "lead"
       })), React.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_0__["Container"], {
         fluid: true
@@ -224,6 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _public_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/constants.js */ "./public/constants.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -241,6 +244,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -278,7 +282,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardTitle"], null, this.state.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
         color: "secondary",
         onClick: this.toggle
-      }, "Start"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Fade"], {
+      }, _public_constants_js__WEBPACK_IMPORTED_MODULE_2__["START"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Fade"], {
         "in": this.state.fadeIn,
         className: "my-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardText"], null, this.state.text)))));
@@ -47686,6 +47690,28 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/constants.js":
+/*!*****************************!*\
+  !*** ./public/constants.js ***!
+  \*****************************/
+/*! exports provided: START, LEAD_MAIN, UNIT_MAIN, UTILITY_MAIN, TEST_OPTION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "START", function() { return START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LEAD_MAIN", function() { return LEAD_MAIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNIT_MAIN", function() { return UNIT_MAIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UTILITY_MAIN", function() { return UTILITY_MAIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TEST_OPTION", function() { return TEST_OPTION; });
+var START = 'Start';
+var LEAD_MAIN = 'This is the test project';
+var UNIT_MAIN = 'This is a simple unit';
+var UTILITY_MAIN = 'It uses utility classes for typography and spacing to space content out within the larger container.';
+var TEST_OPTION = 'Please choose correct answer';
 
 /***/ })
 
